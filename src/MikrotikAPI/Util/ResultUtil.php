@@ -17,8 +17,8 @@ class ResultUtil {
     private $itList;
 
     public function __construct() {
-        $this->list = new ArrayObject();
-        $this->listAttr = new ArrayObject();
+        $this->list = new \ArrayObject();
+        $this->listAttr = new \ArrayObject();
     }
 
     public function getResult($mixed = '') {

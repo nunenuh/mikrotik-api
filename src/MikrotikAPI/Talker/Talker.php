@@ -3,6 +3,7 @@
 namespace MikrotikAPI\Talker;
 
 use MikrotikAPI\Entity\Auth;
+use MikrotikAPI\Core\Connector;
 
 /**
  * Description of Talker

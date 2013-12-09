@@ -2,7 +2,9 @@
 
 namespace MikrotikAPI\Talker;
 
-use MikrotikAPI\Util\DebugDumper;
+use MikrotikAPI\Core\Connector,
+    MikrotikAPI\Util\ResultUtil,
+    MikrotikAPI\Util\DebugDumper;
 
 /**
  * Description of TalkerReciever

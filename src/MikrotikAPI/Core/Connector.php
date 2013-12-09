@@ -3,7 +3,8 @@
 namespace MikrotikAPI\Core;
 
 use MikrotikAPI\Core\StreamReciever,
-    MikrotikAPI\Core\StreamReciever;
+    MikrotikAPI\Core\StreamSender,
+    MikrotikAPI\Util\Util;
 
 /**
  * Description of Connector
