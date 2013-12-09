@@ -1,6 +1,6 @@
 <?php
 
-namespace MikrotiAPI\Util;
+namespace MikrotikAPI\Util;
 
 use MikrotikAPI\Entity\Attribute;
 
