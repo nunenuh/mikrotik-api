@@ -1,10 +1,10 @@
 {
-    "name": "nunenuh/mikrotik",
+    "name": "nunenuh/mikrotik-api",
     "description": "Mikrotik API PHP Library for working with RouterOS API",
     "version": "0.8.0",
     "type": "library",
     "time": "2013-12-03",
-    "keywords": ["API", "Exception"],
+    "keywords": ["API", "Mikrotik","RouterOS"],
     "license": "MIT",
     "authors": [
         {
@@ -15,8 +15,8 @@
     ],
     "autoload": {
         "psr-0": {
-            "Mikrotik": "src/",
-            "MikrotikTest": "test/"
+            "MikrotikAPI": "src/",
+            "MikrotikAPITest": "test/"
         }
     },
     "require": {
