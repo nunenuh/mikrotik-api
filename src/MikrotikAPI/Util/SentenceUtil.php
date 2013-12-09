@@ -17,7 +17,7 @@ class SentenceUtil {
     private $list;
 
     public function __construct() {
-        $this->list = new ArrayObject();
+        $this->list = new \ArrayObject();
     }
 
     public function select($attributeName) {
