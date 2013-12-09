@@ -4,6 +4,8 @@ namespace MikrotikAPI\Talker;
 
 use MikrotikAPI\Core\Connector,
     MikrotikAPI\Util\ResultUtil,
+    MikrotikAPI\Util\Util,
+    MikrotikAPI\Entity\Attribute,
     MikrotikAPI\Util\DebugDumper;
 
 /**
@@ -51,7 +53,7 @@ class TalkerReciever {
     private function parseRawToList($raw) {
         $raw = trim($raw);
         if (!empty($raw)) {
-            $list = new ArrayObject();
+            $list = new \ArrayObject();
             $token = explode("\n", $raw);
             $a = 1;
             while ($a < count($token)) {

@@ -41,7 +41,7 @@ class ResultUtil {
     }
 
     public function getResultArray() {
-        $ar = new ArrayObject();
+        $ar = new \ArrayObject();
 
         while ($this->next()) {
             $it = $this->listAttr->getIterator();
@@ -78,7 +78,7 @@ class ResultUtil {
         return $this->list->count();
     }
 
-    public function add(ArrayObject $object) {
+    public function add(\ArrayObject $object) {
         $this->list->append($object);
         $this->fireOnChange();
     }

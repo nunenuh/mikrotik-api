@@ -3,6 +3,9 @@
 namespace MikrotikAPI\Talker;
 
 use MikrotikAPI\Core\Connector,
+    MikrotikAPI\Util\SentenceUtil,
+    MikrotikAPI\Entity\Attribute,
+    MikrotikAPI\Util\Util,
     MikrotikAPI\Util\DebugDumper;
 
 /**
@@ -55,7 +58,7 @@ class TalkerSender {
 
         $it->rewind();
 
-        $out = new ArrayObject();
+        $out = new \ArrayObject();
         $out->append($attr);
         while ($it->valid()) {
             if (!Util::contains($it->current()->getClause(), "commandPrint") &&

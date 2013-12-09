@@ -15,21 +15,24 @@ use MikrotikAPI\Core\Connector;
  * @property TalkerReciever
  * @property TalkerSender
  */
-class Talker extends Connector {
+class Talker {
 
     private $sender;
     private $reciever;
     private $auth;
+    private $connector;
 
 //        private $param;
 
 
     public function __construct(Auth $auth) {
-        parent::__construct($auth->getHost(), $auth->getPort(), $auth->getUsername(), $auth->getPassword());
-        parent::connect();
+//        parent::__construct($auth->getHost(), $auth->getPort(), $auth->getUsername(), $auth->getPassword());
+//        parent::connect();
         $this->auth = $auth;
-        $this->sender = new TalkerSender($this);
-        $this->reciever = new TalkerReciever($this);
+        $this->connector = new Connector($auth->getHost(), $auth->getPort(), $auth->getUsername(), $auth->getPassword());
+        $this->connector->connect();
+        $this->sender = new TalkerSender($this->connector);
+        $this->reciever = new TalkerReciever($this->connector);
     }
 
     /**
@@ -37,7 +40,7 @@ class Talker extends Connector {
      * @return type
      */
     public function isLogin() {
-        return parent::isLogin();
+//        return parent::isLogin();
     }
 
     /**
@@ -45,7 +48,7 @@ class Talker extends Connector {
      * @return type
      */
     public function isConnected() {
-        return parent::isConnected();
+//        return parent::isConnected();
     }
 
     /**
