@@ -3,25 +3,22 @@
 require '../vendor/autoload.php';
 
 use MikrotikAPI\Talker\Talker;
-use \MikrotikAPI\Entity\Auth;
+use MikrotikAPI\Entity\Auth;
 use MikrotikAPI\Commands\IP\Address;
-use MikrotikAPI\Commands\IP\Firewall\FirewallFilter;
+use MikrotikAPI\MikrotikException;
+use MikrotikAPI\Util\DebugDumper;
 
 
-$auth = new Auth();
-$auth->setHost("172.18.1.254");
-$auth->setUsername("admin");
-$auth->setPassword("1261");
-$auth->setDebug(true);
+try {
 
+    $auth = new Auth("172.18.1.254", "admin", "1261");
+    $auth->setDebug(true)->setTimeout(10)->setDelay(5);
 
-$talker = new Talker($auth);
-//$filter = new FirewallFilter($talker);
-//$a = $filter->getAll();
+    $ipaddr = new Address(new Talker($auth));
+    $listIP = $ipaddr->getAll();
 
+    DebugDumper::dump($listIP);
 
-$ipaddr = new Address($talker);
-$listIP = $ipaddr->getAll();
-
-
-MikrotikAPI\Util\DebugDumper::dump($listIP);
+} catch (MikrotikException $e) {
+    echo $e->getMessage();
+}
