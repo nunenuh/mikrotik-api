@@ -57,8 +57,13 @@ class Auth {
      */
     private $timeout = 2;
 
-    function __construct() {
-        
+    function __construct($host, $username, $password) {
+
+        $this->setHost($host);
+        $this->setUsername($username);
+        $this->setPassword($password);
+
+        return $this;
     }
 
     public function set($host, $port, $username, $password, $debug, $attempts, $delay, $timeout) {
@@ -70,6 +75,8 @@ class Auth {
         $this->attempts = $attempts;
         $this->delay = $delay;
         $this->timeout = $timeout;
+
+        return $this;
     }
 
     public function getHost() {
@@ -106,34 +113,50 @@ class Auth {
 
     public function setHost($host) {
         $this->host = $host;
+
+        return $this;
     }
 
     public function setPort($port) {
         $this->port = $port;
+
+        return $this;
     }
 
     public function setUsername($username) {
         $this->username = $username;
+
+        return $this;
     }
 
     public function setPassword($password) {
         $this->password = $password;
+
+        return $this;
     }
 
     public function setDebug($debug) {
         $this->debug = $debug;
+
+        return $this;
     }
 
     public function setAttempts($attempts) {
         $this->attempts = $attempts;
+
+        return $this;
     }
 
     public function setDelay($delay) {
         $this->delay = $delay;
+
+        return $this;
     }
 
     public function setTimeout($timeout) {
         $this->timeout = $timeout;
+
+        return $this;
     }
 
 }
