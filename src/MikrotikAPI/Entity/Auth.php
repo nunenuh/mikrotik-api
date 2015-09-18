@@ -2,62 +2,69 @@
 
 namespace MikrotikAPI\Entity;
 
+
+
 /**
- * Description of Auth
+ * Class responsible for storing the connection variables
  *
- * @author nunenuh
+ * @category Auth
+ * @package  Entity
+ * @author    Ronaldo Matos Rodrigues <ronaldo@whera.com.br>
+ * @license  https://opensource.org/licenses/MIT The MIT License (MIT)
+ * @link     https://github.com/nunenuh/mikrotik-api
+ *
  */
-class Auth {
+class Auth
+{
 
     /**
-     *
      * @var string
      */
     private $host;
 
     /**
-     *
      * @var int 
      */
     private $port = 8728;
 
     /**
-     *
      * @var string
      */
     private $username;
 
     /**
-     *
      * @var string 
      */
     private $password;
 
     /**
-     *
      * @var boolean 
      */
-    private $debug = FALSE;
+    private $debug = false;
 
     /**
-     *
      * @var int
      */
     private $attempts = 5;
 
     /**
-     *
      * @var int
      */
     private $delay = 2;
 
     /**
-     *
      * @var int
      */
     private $timeout = 2;
 
-    function __construct($host, $username, $password) {
+
+    /**
+     * @param string $host
+     * @param string $username
+     * @param string $password
+     */
+    function __construct($host = '', $username = '', $password = '')
+    {
 
         $this->setHost($host);
         $this->setUsername($username);
@@ -66,81 +73,153 @@ class Auth {
         return $this;
     }
 
-    public function getHost() {
+    /**
+     * @return string
+     */
+    public function getHost()
+    {
         return $this->host;
     }
 
-    public function getPort() {
+    /**
+     * @return int
+     */
+    public function getPort()
+    {
         return $this->port;
     }
 
-    public function getUsername() {
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
         return $this->username;
     }
 
-    public function getPassword() {
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
         return $this->password;
     }
 
-    public function getDebug() {
+    /**
+     * @return bool
+     */
+    public function getDebug()
+    {
         return $this->debug;
     }
 
-    public function getAttempts() {
+    /**
+     * @return int
+     */
+    public function getAttempts()
+    {
         return $this->attempts;
     }
 
-    public function getDelay() {
+    /**
+     * @return int
+     */
+    public function getDelay()
+    {
         return $this->delay;
     }
 
-    public function getTimeout() {
+    /**
+     * @return int
+     */
+    public function getTimeout()
+    {
         return $this->timeout;
     }
 
-    public function setHost($host) {
+    /**
+php     * @param string $host
+     * @return $this
+     */
+    public function setHost($host)
+    {
         $this->host = $host;
 
         return $this;
     }
 
-    public function setPort($port) {
+    /**
+     * @param int $port
+     * @return $this
+     */
+    public function setPort($port)
+    {
         $this->port = $port;
 
         return $this;
     }
 
-    public function setUsername($username) {
+    /**
+     * @param string $username
+     * @return $this
+     */
+    public function setUsername($username)
+    {
         $this->username = $username;
 
         return $this;
     }
 
-    public function setPassword($password) {
+    /**
+     * @param string $password
+     * @return $this
+     */
+    public function setPassword($password)
+    {
         $this->password = $password;
 
         return $this;
     }
 
-    public function setDebug($debug) {
+    /**
+     * @param bool $debug
+     * @return $this
+     */
+    public function setDebug($debug)
+    {
         $this->debug = $debug;
 
         return $this;
     }
 
-    public function setAttempts($attempts) {
+    /**
+     * @param string $attempts
+     * @return $this
+     */
+    public function setAttempts($attempts)
+    {
         $this->attempts = $attempts;
 
         return $this;
     }
 
-    public function setDelay($delay) {
+    /**
+     * @param int $delay
+     * @return $this
+     */
+    public function setDelay($delay)
+    {
         $this->delay = $delay;
 
         return $this;
     }
 
-    public function setTimeout($timeout) {
+    /**
+     * @param int $timeout
+     * @return $this
+     */
+    public function setTimeout($timeout)
+    {
         $this->timeout = $timeout;
 
         return $this;
