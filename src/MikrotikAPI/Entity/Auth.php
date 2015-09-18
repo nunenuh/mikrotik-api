@@ -2,6 +2,8 @@
 
 namespace MikrotikAPI\Entity;
 
+use MikrotikAPI\Util\Validation;
+use MikrotikAPI\MikrotikException;
 
 
 /**
@@ -143,7 +145,12 @@ php     * @param string $host
      */
     public function setHost($host)
     {
-        $this->host = $host;
+        $ip = gethostbyname($host);
+
+        if (!Validation::ip($ip)) {
+            throw new MikrotikException('is required for a valid host or ip', 1);
+        }
+        $this->host = $ip;
 
         return $this;
     }
@@ -154,6 +161,9 @@ php     * @param string $host
      */
     public function setPort($port)
     {
+        if (!Validation::numeric($port)) {
+            throw new MikrotikException('The port must contain integers', 1);
+        }
         $this->port = $port;
 
         return $this;
@@ -165,6 +175,9 @@ php     * @param string $host
      */
     public function setUsername($username)
     {
+        if (!Validation::notBlank($username)) {
+            throw new MikrotikException('You need to enter a user name', 1);
+        }
         $this->username = $username;
 
         return $this;
@@ -187,6 +200,9 @@ php     * @param string $host
      */
     public function setDebug($debug)
     {
+        if (!Validation::boolean($debug)) {
+            throw new MikrotikException('The value must be true or false', 1);
+        }
         $this->debug = $debug;
 
         return $this;
@@ -209,6 +225,9 @@ php     * @param string $host
      */
     public function setDelay($delay)
     {
+        if (!Validation::numeric($delay)) {
+            throw new MikrotikException('The delay must contain integers', 1);
+        }
         $this->delay = $delay;
 
         return $this;
@@ -220,6 +239,9 @@ php     * @param string $host
      */
     public function setTimeout($timeout)
     {
+        if (!Validation::numeric($timeout)) {
+            throw new MikrotikException('The time out must contain integers', 1);
+        }
         $this->timeout = $timeout;
 
         return $this;
