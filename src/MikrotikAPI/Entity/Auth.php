@@ -140,7 +140,7 @@ class Auth
     }
 
     /**
-php     * @param string $host
+     * @param string $host
      * @return $this
      */
     public function setHost($host)
