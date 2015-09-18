@@ -66,19 +66,6 @@ class Auth {
         return $this;
     }
 
-    public function set($host, $port, $username, $password, $debug, $attempts, $delay, $timeout) {
-        $this->host = $host;
-        $this->port = $port;
-        $this->username = $username;
-        $this->password = $password;
-        $this->debug = $debug;
-        $this->attempts = $attempts;
-        $this->delay = $delay;
-        $this->timeout = $timeout;
-
-        return $this;
-    }
-
     public function getHost() {
         return $this->host;
     }
