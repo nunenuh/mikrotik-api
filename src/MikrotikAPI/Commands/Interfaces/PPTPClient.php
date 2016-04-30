@@ -33,7 +33,7 @@ class PPTPClient {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -46,7 +46,7 @@ class PPTPClient {
         $sentence->addCommand("/interface/pptp-client/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -59,7 +59,7 @@ class PPTPClient {
         $sentence->addCommand("/interface/pptp-client/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -72,7 +72,7 @@ class PPTPClient {
         $sentence->addCommand("/interface/pptp-client/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -108,7 +108,7 @@ class PPTPClient {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

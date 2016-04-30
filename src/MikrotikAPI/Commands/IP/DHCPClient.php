@@ -38,7 +38,7 @@ class DHCPClient {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -51,7 +51,7 @@ class DHCPClient {
         $sentence->addCommand("/ip/dhcp-client/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -64,7 +64,7 @@ class DHCPClient {
         $sentence->addCommand("/ip/dhcp-client/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -77,7 +77,7 @@ class DHCPClient {
         $sentence->addCommand("/ip/dhcp-client/renew");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -90,7 +90,7 @@ class DHCPClient {
         $sentence->addCommand("/ip/dhcp-client/release");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -107,7 +107,7 @@ class DHCPClient {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -120,7 +120,7 @@ class DHCPClient {
         $sentence->addCommand("/ip/dhcp-client/remove");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

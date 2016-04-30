@@ -54,7 +54,7 @@ class TalkerReciever {
         $raw = trim($raw);
         if (!empty($raw)) {
             $list = new \ArrayObject();
-            $token = explode("\n", $raw);
+            $token = explode(PHP_EOL, $raw);
             $a = 1;
             while ($a < count($token)) {
                 next($token);

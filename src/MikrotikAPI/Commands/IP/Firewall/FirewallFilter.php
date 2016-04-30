@@ -37,7 +37,7 @@ class FirewallFilter {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -69,7 +69,7 @@ class FirewallFilter {
         $sentence->addCommand("/ip/firewall/filter/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -83,7 +83,7 @@ class FirewallFilter {
         $sentence->addCommand("/ip/firewall/filter/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -97,7 +97,7 @@ class FirewallFilter {
         $sentence->addCommand("/ip/firewall/filter/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -115,7 +115,7 @@ class FirewallFilter {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

@@ -39,7 +39,7 @@ class Accounting {
         $sentence->setAttribute("enabled", $enabled);
         $sentence->setAttribute("threshold", $threshold);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -126,7 +126,7 @@ class Accounting {
         $sentence->setAttribute("accessible-via-web", $accessible_via_web);
         $sentence->setAttribute("address", "0.0.0.0/0");
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
 }

@@ -38,7 +38,7 @@ class PPPoEClient {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -70,7 +70,7 @@ class PPPoEClient {
         $sentence->addCommand("/interface/pppoe-client/enable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -84,7 +84,7 @@ class PPPoEClient {
         $sentence->addCommand("/interface/pppoe-client/disable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -98,7 +98,7 @@ class PPPoEClient {
         $sentence->addCommand("/interface/pppoe-client/remove");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -116,7 +116,7 @@ class PPPoEClient {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

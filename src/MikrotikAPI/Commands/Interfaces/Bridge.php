@@ -33,7 +33,7 @@ class Bridge {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -46,7 +46,7 @@ class Bridge {
         $sentence->addCommand("/interface/bridge/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -59,7 +59,7 @@ class Bridge {
         $sentence->addCommand("/interface/bridge/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -72,7 +72,7 @@ class Bridge {
         $sentence->addCommand("/interface/bridge/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -106,7 +106,7 @@ class Bridge {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -135,7 +135,7 @@ class Bridge {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -148,7 +148,7 @@ class Bridge {
         $sentence->addCommand("/interface/bridge/nat/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -161,7 +161,7 @@ class Bridge {
         $sentence->addCommand("/interface/bridge/nat/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -174,7 +174,7 @@ class Bridge {
         $sentence->addCommand("/interface/bridge/nat/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -208,7 +208,7 @@ class Bridge {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -244,7 +244,7 @@ class Bridge {
         $sentence->setAttribute("use-ip-firewall-for-vlan", $use_ip_firewall_for_vlan);
         $sentence->setAttribute("use-ip-firewall-for-pppoe", $use_ip_firewall_for_pppoe);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

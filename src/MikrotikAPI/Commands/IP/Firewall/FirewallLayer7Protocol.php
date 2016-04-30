@@ -37,7 +37,7 @@ class FirewallLayer7Protocol {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -70,7 +70,7 @@ class FirewallLayer7Protocol {
         $sentence->addCommand("/ip/firewall/layer7-protocol/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -84,7 +84,7 @@ class FirewallLayer7Protocol {
         $sentence->addCommand("/ip/firewall/layer7-protocol/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -98,7 +98,7 @@ class FirewallLayer7Protocol {
         $sentence->addCommand("/ip/firewall/layer7-protocol/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -116,7 +116,7 @@ class FirewallLayer7Protocol {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

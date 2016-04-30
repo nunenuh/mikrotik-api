@@ -69,7 +69,7 @@ class Connector {
             $this->sendStream("/login");
             $rec = $this->recieveStream();
             if (!Util::contains($rec, "!trap") && strlen($rec) > 0) {
-                $word = explode("\n", $rec);
+                $word = explode(PHP_EOL, $rec);
                 if (count($word) > 1) {
                     $split = explode("=ret=", $word[2]);
                     $challange = $split[1];

@@ -51,7 +51,7 @@ class FirewallServicePort {
         $sentence->addCommand("/ip/firewall/service-port/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -64,7 +64,7 @@ class FirewallServicePort {
         $sentence->addCommand("/ip/firewall/service-port/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

@@ -86,7 +86,7 @@ class Bonding {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -124,7 +124,7 @@ class Bonding {
         $sentence->addCommand("/interface/bonding/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -141,7 +141,7 @@ class Bonding {
         $sentence->addCommand("/interface/bonding/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -204,7 +204,7 @@ class Bonding {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -243,7 +243,7 @@ class Bonding {
         $sentence->addCommand("/interface/bonding/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
 }

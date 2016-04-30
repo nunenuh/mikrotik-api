@@ -39,11 +39,19 @@ class Interfaces {
     }
 
     /**
-     * This method is used to call class Ethetrnet
+     * This method is used to call class Ethernet
      * @return Mapi_Ip 
      */
     public function ethernet() {
         return new Ethernet($this->talker);
+    }
+
+    /**
+     * This method is used to call class Wireless
+     * @return Mapi_Ip 
+     */
+    public function wireless() {
+        return new Wireless($this->talker);
     }
 
     /**

@@ -1,9 +1,9 @@
 <?php
 
-namespace Mikrotik\Commands\IP\Hotspot;
+namespace MikrotikAPI\Commands\IP\Hotspot;
 
-use Mikrotik\API\Talker\Talker,
-    Mikrotik\API\Util\SentenceUtil;
+use MikrotikAPI\Talker\Talker,
+    MikrotikAPI\Util\SentenceUtil;
 
 /**
  * Description of Users
@@ -35,7 +35,7 @@ class HotspotUsers {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -49,7 +49,7 @@ class HotspotUsers {
         $sentence->addCommand("/ip/hotspot/user/remove");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -63,7 +63,7 @@ class HotspotUsers {
         $sentence->addCommand("/ip/hotspot/user/enable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -77,7 +77,7 @@ class HotspotUsers {
         $sentence->addCommand("/ip/hotspot/user/disable");
         $sentence->where(".id", "=", $id);
         $disable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -91,7 +91,7 @@ class HotspotUsers {
         $sentence->addCommand("/ip/hotspot/user/reset-counter");
         $sentence->where(".id", "=", $id);
         $disable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -109,7 +109,7 @@ class HotspotUsers {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

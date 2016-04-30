@@ -35,7 +35,7 @@ class System {
         $sentence->addCommand("/system/identity/set");
         $sentence->setAttribute("name", $name);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -75,7 +75,7 @@ class System {
         $sentence->addCommand("/system/backup/save");
         $sentence->setAttribute("name", $name);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -88,7 +88,7 @@ class System {
         $sentence->addCommand("/system/backup/load");
         $sentence->setAttribute("name", $name);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -152,7 +152,7 @@ class System {
         $sentence->setAttribute("no-defaults", $no_defaults);
         $sentence->setAttribute("skip-backup", $skip_backup);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
 }

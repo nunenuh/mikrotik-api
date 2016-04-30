@@ -37,7 +37,7 @@ class DHCPServer {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -52,7 +52,7 @@ class DHCPServer {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -65,7 +65,7 @@ class DHCPServer {
         $sentence->addCommand("/ip/dhcp-server/config/set");
         $sentence->setAttribute("store-leases-disk", $store_leases_disk);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -83,7 +83,7 @@ class DHCPServer {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -113,7 +113,7 @@ class DHCPServer {
         $sentence->addCommand("/ip/dhcp-server/network/remove");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -146,7 +146,7 @@ class DHCPServer {
         $sentence->addCommand("/ip/dhcp-server/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -159,7 +159,7 @@ class DHCPServer {
         $sentence->addCommand("/ip/dhcp-server/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -172,7 +172,7 @@ class DHCPServer {
         $sentence->addCommand("/ip/dhcp-server/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -189,7 +189,7 @@ class DHCPServer {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

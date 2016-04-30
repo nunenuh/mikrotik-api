@@ -2,8 +2,8 @@
 
 namespace MikrotikAPI\Commands\IP;
 
-use Mikrotik\API\Talker\Talker,
-    Mikrotik\API\Util\SentenceUtil;
+use MikrotikAPI\Talker\Talker,
+    MikrotikAPI\Util\SentenceUtil;
 
 /**
  * Description of DHCPRelay
@@ -37,7 +37,7 @@ class DHCPRelay {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -50,7 +50,7 @@ class DHCPRelay {
         $sentence->addCommand("/ip/dhcp-relay/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -63,7 +63,7 @@ class DHCPRelay {
         $sentence->addCommand("/ip/dhcp-relay/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -80,7 +80,7 @@ class DHCPRelay {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -93,7 +93,7 @@ class DHCPRelay {
         $sentence->addCommand("/ip/dhcp-relay/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
