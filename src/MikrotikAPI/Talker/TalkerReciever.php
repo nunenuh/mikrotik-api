@@ -3,15 +3,18 @@
 namespace MikrotikAPI\Talker;
 
 use MikrotikAPI\Core\Connector,
-    MikrotikAPI\Util\ResultUtil,
-    MikrotikAPI\Util\Util,
-    MikrotikAPI\Entity\Attribute,
-    MikrotikAPI\Util\DebugDumper;
+MikrotikAPI\Util\ResultUtil,
+MikrotikAPI\Util\SimpleResult,
+MikrotikAPI\Util\Util,
+MikrotikAPI\Entity\Attribute,
+MikrotikAPI\Util\DebugDumper;
 
 /**
- * Description of TalkerReciever
+ * Class to receive messages from the Mikrotik API.
  *
  * @author Lalu Erfandi Maula Yusnu nunenuh@gmail.com <http://vthink.web.id>
+ * @author Chibueze Opata opatachibueze@gmail.com <http://robosyslive.com>
+ * 
  * @copyright Copyright (c) 2011, Virtual Think Team.
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @category Libraries
@@ -24,9 +27,13 @@ class TalkerReciever {
     private $done = FALSE;
     private $re = FALSE;
     private $debug = FALSE;
+    private $useROS;
+    private $routerAPI;
 
-    public function __construct(Connector $con) {
+    public function __construct(Connector $con, $routerAPI = null, $useROS = FALSE) {
         $this->con = $con;
+        $this->routerAPI = $routerAPI;
+        $this->useROS = $useROS;
         $this->result = new ResultUtil();
     }
 
@@ -81,7 +88,13 @@ class TalkerReciever {
     }
 
     public function doRecieving() {
-        $this->run();
+        if($this->useROS){
+            $result = $this->routerAPI->read();
+            $this->result = new SimpleResult($result);
+        }
+        else{
+            $this->run();
+        }
     }
 
     private function runDebugger($string) {

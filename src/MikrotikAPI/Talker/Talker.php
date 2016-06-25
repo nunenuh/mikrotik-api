@@ -4,12 +4,15 @@ namespace MikrotikAPI\Talker;
 
 use MikrotikAPI\Entity\Auth;
 use MikrotikAPI\Core\Connector;
+use MikrotikAPI\MikrotikException;
+use MikrotikAPI\Core\RouterosAPI;
 
 /**
  * Description of Talker
  *
  * @author Lalu Erfandi Maula Yusnu nunenuh@gmail.com <http://vthink.web.id>
- * @copyright Copyright (c) 2011, Virtual Think Team.
+ * @author Chibueze Opata opatachibueze@gmail.com <http://robosyslive.com>
+ * @copyright Copyright (c) 2016, SCI Team.
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @category Libraries
  * @property TalkerReciever
@@ -21,18 +24,55 @@ class Talker {
     private $reciever;
     private $auth;
     private $connector;
+    private $useROS;
+    private $routerAPI;
+    private $connected = FALSE;
 
-//        private $param;
-
-
-    public function __construct(Auth $auth) {
-//        parent::__construct($auth->getHost(), $auth->getPort(), $auth->getUsername(), $auth->getPassword());
-//        parent::connect();
+    public function __construct(Auth $auth, $useROS = true) {
         $this->auth = $auth;
+
+        $this->useROS = $useROS;
+        if($useROS){
+            $this->routerAPI = new RouterosAPI;
+        }
+    }
+
+    public function initialize() {        
+        $auth = $this->auth;
         $this->connector = new Connector($auth->getHost(), $auth->getPort(), $auth->getUsername(), $auth->getPassword());
-        $this->connector->connect();
-        $this->sender = new TalkerSender($this->connector);
-        $this->reciever = new TalkerReciever($this->connector);
+        if($this->useROS){
+            $this->routerAPI->connect($auth->getHost(), $auth->getUsername(), $auth->getPassword());
+            $this->sender = new TalkerSender($this->connector, $this->routerAPI, TRUE);
+            $this->reciever = new TalkerReciever($this->connector, $this->routerAPI, TRUE);
+            $this->connected = $this->routerAPI->isConnected();
+        }
+        else{
+            $this->connector->connect();
+            $tries = 0;
+            while(!$this->connector->isConnected() && $tries != $auth->getAttempts())        
+            {
+                $this->connector->connect();
+                sleep(2);
+            }
+            //failed to connect
+            if($tries == $auth->getAttempts())
+            {
+                throw new MikrotikException('Could not connect to Mikrotik');
+            }
+            $this->sender = new TalkerSender($this->connector);
+            $this->reciever = new TalkerReciever($this->connector);
+            $this->connected = $this->connector->isConnected();
+        }
+    }
+
+    public function closeConnection()
+    {
+        if($this->useROS){
+            $this->routerAPI->disconnect();
+        }
+        else{
+            $this->connector->close();
+        }
     }
 
     /**
@@ -40,7 +80,7 @@ class Talker {
      * @return type
      */
     public function isLogin() {
-//        return parent::isLogin();
+        //        return parent::isLogin();
     }
 
     /**
@@ -48,7 +88,7 @@ class Talker {
      * @return type
      */
     public function isConnected() {
-//        return parent::isConnected();
+        return $this->connected;
     }
 
     /**
@@ -98,6 +138,7 @@ class Talker {
      * @param type $sentence
      */
     public function send($sentence) {
+        $this->initialize();
         $this->sender->send($sentence);
         $this->reciever->doRecieving();
     }
@@ -108,6 +149,18 @@ class Talker {
      */
     public function getResult() {
         return $this->reciever->getResult();
+    }
+
+    /**
+     * Standard destructor
+     *
+     * @return void
+     */
+    public function __destruct()
+    {
+        if($this->connected){
+            $this->closeConnection();
+        }
     }
 
 }

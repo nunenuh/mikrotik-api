@@ -47,7 +47,7 @@ class Auth
     /**
      * @var int
      */
-    private $attempts = 5;
+    private $attempts = 2;
 
     /**
      * @var int

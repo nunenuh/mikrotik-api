@@ -12,7 +12,7 @@ use MikrotikAPI\Talker\Talker,
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @category name
  */
-class HotspotUserProfile {
+class HotspotUserProfiles {
 
     /**
      *

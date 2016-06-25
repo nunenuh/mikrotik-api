@@ -49,6 +49,10 @@ class Connector {
         $this->sender = new StreamSender($this->socket);
         $this->reciever = new StreamReciever($this->socket);
     }
+    
+    public function close(){
+        socket_close($this->socket);
+    }
 
     public function sendStream($command) {
         return $this->sender->send($command);

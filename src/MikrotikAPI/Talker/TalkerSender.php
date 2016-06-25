@@ -3,15 +3,16 @@
 namespace MikrotikAPI\Talker;
 
 use MikrotikAPI\Core\Connector,
-    MikrotikAPI\Util\SentenceUtil,
-    MikrotikAPI\Entity\Attribute,
-    MikrotikAPI\Util\Util,
-    MikrotikAPI\Util\DebugDumper;
+MikrotikAPI\Util\SentenceUtil,
+MikrotikAPI\Entity\Attribute,
+MikrotikAPI\Util\Util,
+MikrotikAPI\Util\DebugDumper;
 
 /**
- * Description of TalkerSender
+ * Class for talking/sending commands to the Mikrotik API/Router
  *
  * @author Lalu Erfandi Maula Yusnu nunenuh@gmail.com <http://vthink.web.id>
+ * @author Chibueze Opata opatachibueze@gmail.com <http://robosyslive.com>
  * @copyright Copyright (c) 2011, Virtual Think Team.
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  * @category Libraries
@@ -20,14 +21,23 @@ class TalkerSender {
 
     private $debug = FALSE;
     private $con;
+    private $useROS;
+    private $routerAPI;
 
-    public function __construct(Connector $con) {
+    public function __construct(Connector $con, $routerAPI = null, $useROS = FALSE) {
         $this->con = $con;
+        $this->routerAPI = $routerAPI;
+        $this->useROS = $useROS;
     }
 
     public function send(SentenceUtil $sentence) {
         $cmd = $this->createSentence($sentence);
-        $this->con->sendStream($cmd);
+        if($this->useROS){
+            $this->routerAPI->write($cmd);
+        }
+        else{
+            $this->con->sendStream($cmd);
+        }
     }
 
     public function isDebug() {
@@ -47,27 +57,39 @@ class TalkerSender {
     private function sentenceWrapper(SentenceUtil $sentence) {
         $it = $sentence->getBuildCommand()->getIterator();
 
-        $attr = new Attribute();
+        $attr = null;
+        $main = new \ArrayObject();
+        $append = new \ArrayObject();
         while ($it->valid()) {
             if (Util::contains($it->current()->getClause(), "commandPrint") ||
-                    Util::contains($it->current()->getClause(), "commandReguler")) {
-                $attr = $it->current();
+                Util::contains($it->current()->getClause(), "commandReguler")) {
+                if($attr == null){
+                    $main->append($it->current());
+                }
+            }
+            else{
+                //if contains neither then add to append commands
+                $append->append($it->current());
             }
             $it->next();
         }
+
+        foreach($append->getIterator() as $a)
+        {
+            $main->append($a);
+        }
+        /*
 
         $it->rewind();
 
-        $out = new \ArrayObject();
-        $out->append($attr);
         while ($it->valid()) {
             if (!Util::contains($it->current()->getClause(), "commandPrint") &&
-                    !Util::contains($it->current()->getClause(), "commandReguler")) {
-                $out->append($it->current());
+                !Util::contains($it->current()->getClause(), "commandReguler")) {
             }
             $it->next();
         }
-        return $out;
+*/
+        return $main;
     }
 
     private function createSentence(SentenceUtil $sentence) {
@@ -101,8 +123,8 @@ class TalkerSender {
                 }
 
                 if ($clause == "whereNot" || $clause == "orWhere" ||
-                        $clause == "orWhereNot" || $clause == "andWhere" ||
-                        $clause == "andWhereNot") {
+                    $clause == "orWhereNot" || $clause == "andWhere" ||
+                    $clause == "andWhereNot") {
                     $build = $build . $name . $value;
                 }
 
