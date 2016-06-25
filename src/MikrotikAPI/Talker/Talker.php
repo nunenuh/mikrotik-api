@@ -27,6 +27,7 @@ class Talker {
     private $useROS;
     private $routerAPI;
     private $connected = FALSE;
+    private $initialized = FALSE;
 
     public function __construct(Auth $auth, $useROS = true) {
         $this->auth = $auth;
@@ -35,6 +36,12 @@ class Talker {
         if($useROS){
             $this->routerAPI = new RouterosAPI;
         }
+    }
+
+    public function create($ip, $username, $password, $useROS = true){
+        $connect = new Auth($ip, $username, $password);
+        $talker = new static($connect, $useROS);
+        return $talker;
     }
 
     public function initialize() {        
@@ -63,6 +70,7 @@ class Talker {
             $this->reciever = new TalkerReciever($this->connector);
             $this->connected = $this->connector->isConnected();
         }
+        $this->initialized = TRUE;
     }
 
     public function closeConnection()
@@ -138,7 +146,9 @@ class Talker {
      * @param type $sentence
      */
     public function send($sentence) {
-        $this->initialize();
+        if(!$this->initialized){
+            $this->initialize();
+        }
         $this->sender->send($sentence);
         $this->reciever->doRecieving();
     }

@@ -3,8 +3,8 @@
 namespace MikrotikAPI\Core;
 
 use MikrotikAPI\Core\StreamReciever,
-    MikrotikAPI\Core\StreamSender,
-    MikrotikAPI\Util\Util;
+MikrotikAPI\Core\StreamSender,
+MikrotikAPI\Util\Util;
 
 /**
  * Description of Connector
@@ -26,6 +26,7 @@ class Connector {
     private $username;
     private $password;
     private $connected = FALSE;
+    private $initialized = FALSE;
     private $login = FALSE;
 
     public function __construct($host, $port, $username, $password) {
@@ -33,7 +34,6 @@ class Connector {
         $this->port = $port;
         $this->username = $username;
         $this->password = $password;
-        $this->initStream();
     }
 
     public function isConnected() {
@@ -48,8 +48,9 @@ class Connector {
         $this->socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
         $this->sender = new StreamSender($this->socket);
         $this->reciever = new StreamReciever($this->socket);
+        $this->initialized = TRUE;
     }
-    
+
     public function close(){
         socket_close($this->socket);
     }
@@ -69,6 +70,10 @@ class Connector {
     }
 
     public function connect() {
+        if(!$this->initialized)
+        {
+            $this->initStream();
+        }
         if (socket_connect($this->socket, $this->host, $this->port)) {
             $this->sendStream("/login");
             $rec = $this->recieveStream();
