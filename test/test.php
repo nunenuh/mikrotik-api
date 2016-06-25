@@ -11,7 +11,7 @@ use MikrotikAPI\Util\DebugDumper;
 
 try {
 
-    $auth = new Auth("172.18.1.254", "admin", "1261");
+    $auth = new Auth("192.168.88.1", "admin", "");
     $auth->setDebug(true)->setTimeout(10)->setDelay(5);
 
     $ipaddr = new Address(new Talker($auth));

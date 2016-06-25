@@ -49,7 +49,6 @@ class RouterosAPI
     public function debug($text)
     {
         if ($this->debug) {
-            \Log::debug($text);
             echo $text . "\n";
         }
     }
