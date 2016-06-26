@@ -38,7 +38,7 @@ class Talker {
         }
     }
 
-    public function create($ip, $username, $password, $useROS = true){
+    public static function create($ip, $username, $password, $useROS = true){
         $connect = new Auth($ip, $username, $password);
         $talker = new static($connect, $useROS);
         return $talker;
