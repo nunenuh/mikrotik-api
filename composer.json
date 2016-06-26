@@ -1,7 +1,7 @@
 {
     "name": "xwiz/mikrotik-api",
     "description": "Mikrotik API PHP Library for working with RouterOS API",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "type": "library",
     "time": "2016-05-05",
     "keywords": ["API", "Mikrotik","RouterOS"],
