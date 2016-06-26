@@ -44,7 +44,7 @@ class Talker {
         return $talker;
     }
 
-    public function initialize() {        
+    public function initialize() {
         $auth = $this->auth;
         $this->connector = new Connector($auth->getHost(), $auth->getPort(), $auth->getUsername(), $auth->getPassword());
         if($this->useROS){
@@ -149,8 +149,10 @@ class Talker {
         if(!$this->initialized){
             $this->initialize();
         }
-        $this->sender->send($sentence);
-        $this->reciever->doRecieving();
+        if($this->isConnected()){
+            $this->sender->send($sentence);
+            $this->reciever->doRecieving();
+        }
     }
 
     /**
