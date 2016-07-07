@@ -48,7 +48,7 @@ class Active {
         $sentence->addCommand("/ppp/active/remove");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
 }

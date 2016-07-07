@@ -82,7 +82,7 @@ class StreamReciever {
         while (true) {
             $word = $this->protocolWordDecoder();
             if (strlen($word) != 0 && strlen($word) > 0) {
-                $out = $out . "\n" . $word;
+                $out = $out . PHP_EOL . $word;
             } else {
                 break;
             }

@@ -38,7 +38,7 @@ class ARP {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -52,7 +52,7 @@ class ARP {
         $sentence->addCommand("/ip/arp/remove");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -66,7 +66,7 @@ class ARP {
         $sentence->addCommand("/ip/arp/enable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -80,7 +80,7 @@ class ARP {
         $sentence->addCommand("/ip/arp/disable");
         $sentence->where(".id", "=", $id);
         $disable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -98,7 +98,7 @@ class ARP {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

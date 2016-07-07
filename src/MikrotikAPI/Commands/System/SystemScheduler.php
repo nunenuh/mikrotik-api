@@ -33,7 +33,7 @@ class SystemScheduler {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -46,7 +46,7 @@ class SystemScheduler {
         $sentence->addCommand("/system/scheduler/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -59,7 +59,7 @@ class SystemScheduler {
         $sentence->addCommand("/system/scheduler/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -72,7 +72,7 @@ class SystemScheduler {
         $sentence->addCommand("/system/scheduler/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -108,7 +108,7 @@ class SystemScheduler {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

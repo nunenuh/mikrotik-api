@@ -33,7 +33,7 @@ class PPPClient {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -46,7 +46,7 @@ class PPPClient {
         $sentence->addCommand("/interface/ppp-client/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -59,7 +59,7 @@ class PPPClient {
         $sentence->addCommand("/interface/ppp-client/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -72,7 +72,7 @@ class PPPClient {
         $sentence->addCommand("/interface/ppp-client/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -108,7 +108,7 @@ class PPPClient {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

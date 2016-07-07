@@ -31,7 +31,7 @@ class Ethernet {
      */
     public function getAll() {
         $sentence = new SentenceUtil();
-        $sentence->fromCommand("/interface/getall");
+        $sentence->fromCommand("/interface/ethernet/getall");
         $this->talker->send($sentence);
         $rs = $this->talker->getResult();
         return $rs->getResultArray();
@@ -46,13 +46,13 @@ class Ethernet {
      */
     public function set($param, $id) {
         $sentence = new SentenceUtil();
-        $sentence->addCommand("/interface/set");
+        $sentence->addCommand("/interface/ethernet/set");
         foreach ($param as $name => $value) {
             $sentence->setAttribute($name, $value);
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -62,10 +62,10 @@ class Ethernet {
      */
     public function enable($id) {
         $sentence = new SentenceUtil();
-        $sentence->addCommand("/interface/enable");
+        $sentence->addCommand("/interface/ethernet/enable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -75,10 +75,10 @@ class Ethernet {
      */
     public function disable($id) {
         $sentence = new SentenceUtil();
-        $sentence->addCommand("/interface/disable");
+        $sentence->addCommand("/interface/ethernet/disable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -90,7 +90,7 @@ class Ethernet {
      */
     public function detail($id) {
         $sentence = new SentenceUtil();
-        $sentence->fromCommand("/interface/print");
+        $sentence->fromCommand("/interface/ethernet/print");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
         $rs = $this->talker->getResult();

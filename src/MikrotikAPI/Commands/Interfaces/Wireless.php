@@ -1,19 +1,19 @@
 <?php
 
-namespace MikrotikAPI\Commands\PPP;
+namespace MikrotikAPI\Commands\Interfaces;
 
 use MikrotikAPI\Util\SentenceUtil,
     MikrotikAPI\Talker\Talker;
 
 /**
- * Description of Mapi_Ppp_Profile
+ * Description of Wireless
  *
  * @author      Lalu Erfandi Maula Yusnu nunenuh@gmail.com <http://vthink.web.id>
  * @copyright   Copyright (c) 2011, Virtual Think Team.
  * @license     http://opensource.org/licenses/gpl-license.php GNU Public License
  * @category	Libraries
  */
-class Profile {
+class Wireless {
 
     /**
      *
@@ -26,73 +26,63 @@ class Profile {
     }
 
     /**
-     * This method is used to add ppp profile
-     * @param type $param array
+     * This method is used to display all interface
      * @return type array
-     * 
      */
-    public function add($param) {
+    public function getAll() {
         $sentence = new SentenceUtil();
-        $sentence->addCommand("/ppp/profile/add");
+        $sentence->fromCommand("/interface/wireless/getall");
+        $this->talker->send($sentence);
+        $rs = $this->talker->getResult();
+        return $rs->getResultArray();
+    }
+
+    /**
+     * This method is used to display one interface  
+     * in detail based on the id
+     * @param type $param array
+     * @param type $id string
+     * @return type array
+     */
+    public function set($param, $id) {
+        $sentence = new SentenceUtil();
+        $sentence->addCommand("/interface/wireless/set");
         foreach ($param as $name => $value) {
             $sentence->setAttribute($name, $value);
         }
+        $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
         return "Success";
     }
 
     /**
-     * This method is used to display all ppp profile
-     * @return type array
-     * 
-     */
-    public function getAll() {
-        $sentence = new SentenceUtil();
-        $sentence->fromCommand("/ppp/profile/getall");
-        $this->talker->send($sentence);
-        $rs = $this->talker->getResult();
-        $i = 0;
-        if ($i < $rs->size()) {
-            return $rs->getResultArray();
-        } else {
-            return "No PPP Profile To Set, Please Your Add PPP Profile";
-        }
-    }
-
-    /**
-     * This method is used to remove ppp profile by id
+     * This method is used to enable interface by id
      * @param type $id string
      * @return type array
-     * 
      */
-    public function delete($id) {
+    public function enable($id) {
         $sentence = new SentenceUtil();
-        $sentence->addCommand("/ppp/profile/remove");
+        $sentence->addCommand("/interface/wireless/enable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
         return "Success";
     }
 
     /**
-     * This method is used to set or edit ppp profile by id
-     * @param type $param array
+     * This method is used to disable interface by id
      * @param type $id string
      * @return type array
-     * 
      */
-    public function set($param, $id) {
+    public function disable($id) {
         $sentence = new SentenceUtil();
-        $sentence->addCommand("/ppp/profile/set");
-        foreach ($param as $name => $value) {
-            $sentence->setAttribute($name, $value);
-        }
+        $sentence->addCommand("/interface/wireless/disable");
         $sentence->where(".id", "=", $id);
-        $this->talker->send($sentence);
+        $enable = $this->talker->send($sentence);
         return "Success";
     }
 
     /**
-     * This method is used to display one ppp profile
+     * This method is used to display one interafce 
      * in detail based on the id
      * @param type $id string
      * @return type array
@@ -100,7 +90,7 @@ class Profile {
      */
     public function detail($id) {
         $sentence = new SentenceUtil();
-        $sentence->fromCommand("/ppp/profile/print");
+        $sentence->fromCommand("/interface/wireless/print");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
         $rs = $this->talker->getResult();
@@ -108,7 +98,7 @@ class Profile {
         if ($i < $rs->size()) {
             return $rs->getResultArray();
         } else {
-            return "No PPP Profile With This id = " . $id;
+            return "No Interface Wireless With This id = " . $id;
         }
     }
 
