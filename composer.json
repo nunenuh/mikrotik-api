@@ -1,16 +1,15 @@
 {
-    "name": "xwiz/mikrotik-api",
+    "name": "oele-code/mikrotik-api",
     "description": "Mikrotik API PHP Library for working with RouterOS API",
-    "version": "0.9.1",
+    "version": "0.10.1",
     "type": "library",
-    "time": "2016-05-05",
+    "time": "2016-08-31",
     "keywords": ["API", "Mikrotik","RouterOS"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Opata Chibueze",
-            "email": "opatachibueze@gmail.com",
-            "homepage": "http://sci.ng"
+            "name": "Osmell Caicedo",
+            "email": "correo.oele@gmail.com"
         }
     ],
     "autoload": {
@@ -20,7 +19,9 @@
         }
     },
     "require": {
-        "php": ">=5.3.3",
+        "php": ">=5.3.3"
+    },
+    "require-dev":{
         "phpunit/phpunit": "5.5.*",
         "vlucas/phpdotenv": "^2.3"
     }

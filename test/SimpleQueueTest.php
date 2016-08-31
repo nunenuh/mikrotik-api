@@ -17,10 +17,14 @@ class AddressTest extends TestCase
 		//create conection
 		$talker = Talker::create( $_ENV['MKT_IP'], $_ENV['MKT_USER'], $_ENV['MKT_PASS']);
 		$simple = new Simple($talker);
-		//$listQueues = $simple->getAll();
-		$simple->set('10.10.16.240','prueba','2M/2M');
+		$listQueues = $simple->getAll();
+		//$simple->set('10.10.16.240','prueba','2M/2M');
 		
 		//var_dump($listQueues);//prints an array of installed hotspot user profiles
+		//
+		foreach ($listQueues as $queue) {
+			print_r( $queue['name'] .':'. $queue['target'] );
+		}
 		
 	}
 	
