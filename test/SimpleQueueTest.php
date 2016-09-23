@@ -19,14 +19,11 @@ class AddressTest extends TestCase
 		$talker = Talker::create( $_ENV['MKT_IP'], $_ENV['MKT_USER'], $_ENV['MKT_PASS']);		
 	    $talker->initialize();
 		
-		if( $talker->isConnected() ){
-		 	print_r( "\n"."connected");
-		}
-		
-		// foreach ($listQueues as $queue) {
-		// 	print_r( "\n".$queue['name'] .':'. $queue['target'] );
-		// }
-		
+		$queue = new Simple($talker);
+		// setQueuePCQ($target,$pcq_down,$pcq_up) {
+		$result = $queue->setQueuePCQ('192.168.0.1','ejemplo2','1M Down','1M Up');
+
+		echo ($result);		
 	}
 	
 }
