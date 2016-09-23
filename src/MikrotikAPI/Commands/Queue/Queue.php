@@ -29,5 +29,14 @@ class Queue {
     public function Simple() {
         return new Simple($this->talker);
     }
+    
+    /**
+     * This method for call class Type
+     * @access public
+     * @return object of Type class
+     */
+    public function Type() {
+        return new Type($this->talker);
+    }
 
 }

@@ -1,15 +1,14 @@
 <?php
 use MikrotikAPI\Talker\Talker;
-use MikrotikAPI\Commands\Queue\Simple;
-use MikrotikAPI\Commands\IP\Address;
+use MikrotikAPI\Commands\Queue\Type;
 use PHPUnit\Framework\TestCase;
 
 /**
 * 
 */
-class AddressTest extends TestCase
+class QueueTypeTest extends TestCase
 {
-	public function testGetAllIp()
+	public function testAddType()
 	{	
 		//load enviroment variables
 		$dotenv = new Dotenv\Dotenv(__DIR__);
@@ -17,12 +16,14 @@ class AddressTest extends TestCase
 
 		//create conection
 		$talker = Talker::create( $_ENV['MKT_IP'], $_ENV['MKT_USER'], $_ENV['MKT_PASS']);		
-	    $talker->initialize();
-		
-		if( $talker->isConnected() ){
-		 	print_r( "\n"."connected");
-		}
-		
+	    
+	    $queuetype  = new Type($talker);
+	    $result = $queuetype->addPCQ("PCQ_download","pcq","64000","dst-address");
+	    $result = $queuetype->addPCQ("PCQ_upload","pcq","32000","src-address");
+	    //$result = $queuetype->print();	
+
+	    var_dump($result);
+
 		// foreach ($listQueues as $queue) {
 		// 	print_r( "\n".$queue['name'] .':'. $queue['target'] );
 		// }

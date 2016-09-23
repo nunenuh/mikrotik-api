@@ -5,6 +5,7 @@
     "type": "library",
     "time": "2016-08-31",
     "keywords": ["API", "Mikrotik","RouterOS"],
+    "homepage": "https://github.com/oele-code/mikrotik-api",
     "license": "MIT",
     "authors": [
         {
