@@ -68,7 +68,7 @@ class Simple {
      * @return type array
      */
 
-    public function setQueuePCQ($target, $name, $pcq_down,$pcq_up) {
+    public function setQueuePCQ($target,$pcq_down,$pcq_up) {
         $sentence = new SentenceUtil();
         $sentence->addCommand("/queue/simple/add");
         $sentence->setAttribute("target-addresses", $target);
