@@ -60,4 +60,22 @@ class Simple {
         return "Success";
     }
 
+    /**
+     * This method is used to set simple queue rules
+     * @param type $target string
+     * @param type $name string
+     * @param type $maxLimit string
+     * @return type array
+     */
+
+    public function setQueuePCQ($target, $name, $pcq_down,$pcq_up) {
+        $sentence = new SentenceUtil();
+        $sentence->addCommand("/queue/simple/add");
+        $sentence->setAttribute("target", $target);
+        $sentence->setAttribute("name", $name);
+        $sentence->setAttribute("queue",$pcq_up.'/'.$pcq_down);
+        $this->talker->send($sentence);
+        return "Success";
+    }
+
 }
