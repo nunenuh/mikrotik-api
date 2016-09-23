@@ -71,8 +71,7 @@ class Simple {
     public function setQueuePCQ($target, $name, $pcq_down,$pcq_up) {
         $sentence = new SentenceUtil();
         $sentence->addCommand("/queue/simple/add");
-        $sentence->setAttribute("target", $target);
-        $sentence->setAttribute("name", $name);
+        $sentence->setAttribute("target-addresses", $target);
         $sentence->setAttribute("queue",$pcq_up.'/'.$pcq_down);
         $this->talker->send($sentence);
         return "Success";
