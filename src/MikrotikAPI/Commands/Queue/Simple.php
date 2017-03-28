@@ -62,9 +62,7 @@ class Simple {
 
     /**
      * This method is used to set simple queue rules
-     * @param type $target string
-     * @param type $name string
-     * @param type $maxLimit string
+     * @param type $param array
      * @return type array
      */
 

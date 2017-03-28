@@ -15,6 +15,7 @@ use MikrotikAPI\Commands\Interfaces\Bonding,
     MikrotikAPI\Commands\Interfaces\PPPoEServer,
     MikrotikAPI\Commands\Interfaces\PPTPClient,
     MikrotikAPI\Commands\Interfaces\PPTPServer,
+    MikrotikAPI\Commands\Interfaces\Printing,
     MikrotikAPI\Commands\Interfaces\VLAN,
     MikrotikAPI\Commands\Interfaces\VRRP;
 
@@ -165,5 +166,14 @@ class Interfaces {
     public function PPTPServer() {
         return new PPTPServer($this->talker);
     }
+
+     /**
+     * This method used call class Pptp_Server 
+     * @return Mapi_Ip
+     */
+    public function Prints() {
+        return new Prints($this->talker);
+    }
+
 
 }

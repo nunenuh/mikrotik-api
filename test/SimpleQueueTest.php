@@ -23,7 +23,7 @@ class AddressTest extends TestCase
 		// setQueuePCQ($target,$pcq_down,$pcq_up) {
 		$result = $queue->setQueuePCQ('192.168.0.1','ejemplo2','1M Down','1M Up');
 
-		echo ($result);		
+		// echo ($result);
 	}
 	
 }

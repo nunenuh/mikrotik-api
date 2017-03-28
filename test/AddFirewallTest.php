@@ -21,9 +21,11 @@ class AddFirewallTest extends TestCase
 		
 		$address = new FirewallAddressList($talker);
 		// setQueuePCQ($target,$pcq_down,$pcq_up) {
-		$result = $address->add(['lists' => 'morosos' ,'address' => '192.168.0.1', 'comment' => 'OSMELL CAICEDO']);
-		
-		echo ($result);		
+		//$result = $address->add(['list' => 'morosos' ,'address' => '192.168.0.2', 'comment' => 'OSMELL CAICEDO']);
+		$results = $address->getall();
+		// foreach($results as $result){
+		// 	echo($result['address']);
+		// }
 	}
 	
 }

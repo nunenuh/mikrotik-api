@@ -22,7 +22,7 @@ class QueueTypeTest extends TestCase
 	    $result = $queuetype->addPCQ("PCQ_upload","pcq","32000","src-address");
 	    //$result = $queuetype->print();	
 
-	    var_dump($result);
+	    // var_dump($result);
 
 		// foreach ($listQueues as $queue) {
 		// 	print_r( "\n".$queue['name'] .':'. $queue['target'] );
