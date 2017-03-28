@@ -128,17 +128,17 @@ class Address {
      * @return type array
      * 
      */
-    public function detail_address($id) {
+    public function detail_address($name) {
         $sentence = new SentenceUtil();
         $sentence->fromCommand("/ip/address/print");
-        $sentence->where(".id", "=", $id);
+        $sentence->where("name", "=", $name);
         $this->talker->send($sentence);
         $rs = $this->talker->getResult();
         $i = 0;
         if ($i < $rs->size()) {
             return $rs->getResultArray();
         } else {
-            return "No Ip Address With This id = " . $id;
+            return "No Ip Address With This name = " . $name;
         }
     }
 

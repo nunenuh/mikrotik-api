@@ -36,4 +36,5 @@ class Printing {
         $rs = $this->talker->getResult();
         return $rs->getResultArray();
     }
+    
 }
