@@ -1,6 +1,6 @@
 <?php
 use MikrotikAPI\Talker\Talker;
-use MikrotikAPI\Commands\Interfaces\Printing;
+use MikrotikAPI\Commands\IP\Address;
 use PHPUnit\Framework\TestCase;
 
 class ConnectionTest extends TestCase
@@ -14,13 +14,10 @@ class ConnectionTest extends TestCase
 		//create conection
 		$talker = Talker::create( $_ENV['MKT_IP'], $_ENV['MKT_USER'], $_ENV['MKT_PASS']);		
 	    $talker->initialize();
-        $interfaces = new Printing($talker);
+        $address = new address($talker);
         // PHP_EOL
-        $results = $interfaces->getAll();
+        $listIP = $address->detail_address_where('interface','ether1');
         echo(PHP_EOL);
-        foreach ($results as $result) {
-        	# code...
-        	echo($result['name'].PHP_EOL);
-        }
+        print_r($listIP);
 	}
 }
