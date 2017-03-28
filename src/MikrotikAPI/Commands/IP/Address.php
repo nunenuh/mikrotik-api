@@ -128,17 +128,39 @@ class Address {
      * @return type array
      * 
      */
-    public function detail_address($name) {
+    public function detail_address($id) {
         $sentence = new SentenceUtil();
         $sentence->fromCommand("/ip/address/print");
-        $sentence->where("name", "=", $name);
+        $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
         $rs = $this->talker->getResult();
         $i = 0;
         if ($i < $rs->size()) {
             return $rs->getResultArray();
         } else {
-            return "No Ip Address With This name = " . $name;
+            return "No Ip Address With This .id = " . $id;
+        }
+    }
+
+    /**
+     * This method is used to display one list address 
+     * in detail based on one param
+     * @param type string
+     * @return type array
+     * 
+     */
+    
+    public function detail_address_where($param,$value) {
+        $sentence = new SentenceUtil();
+        $sentence->fromCommand("/ip/address/print");
+        $sentence->where($param, "=", $value);
+        $this->talker->send($sentence);
+        $rs = $this->talker->getResult();
+        $i = 0;
+        if ($i < $rs->size()) {
+            return $rs->getResultArray();
+        } else {
+            return "No Ip Address With This ". $param . " = " . $value;
         }
     }
 
