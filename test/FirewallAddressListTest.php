@@ -1,15 +1,14 @@
 <?php
 use MikrotikAPI\Talker\Talker;
-use MikrotikAPI\Commands\Queue\Simple;
-use MikrotikAPI\Commands\IP\Address;
+use MikrotikAPI\Commands\IP\Firewall\FirewallAddressList;
 use PHPUnit\Framework\TestCase;
 
 /**
 *  Set QueuePCQ test
 */
-class AddressTest extends TestCase
+class FirewallAddressListTest extends TestCase
 {
-	public function testGetAllIp()
+	public function testFirewallAddressListGetAll()
 	{	
 		//load enviroment variables
 		$dotenv = new Dotenv\Dotenv(__DIR__);
@@ -19,11 +18,12 @@ class AddressTest extends TestCase
 		$talker = Talker::create( $_ENV['MKT_IP'], $_ENV['MKT_USER'], $_ENV['MKT_PASS']);		
 	    $talker->initialize();
 		
-		$queue = new Simple($talker);
-		// setQueuePCQ($target,$pcq_down,$pcq_up) {
-		$result = $queue->setQueuePCQ('192.168.0.1','ejemplo2','1M Down','1M Up');
-
-		// echo ($result);
+		$address = new FirewallAddressList($talker);
+		$results = $address->getall();
+		echo(PHP_EOL);
+		foreach($results as $result){
+			echo($result['address'].PHP_EOL);
+		}
 	}
 	
 }
