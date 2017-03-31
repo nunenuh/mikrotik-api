@@ -2,8 +2,8 @@
 
 namespace MikrotikAPI\Commands\Queue;
 
-use MikrotikAPI\Util\SentenceUtil,
-    MikrotikAPI\Talker\Talker;
+use MikrotikAPI\Talker\Talker,
+    MikrotikAPI\Util\SentenceUtil;
 
 /**
  * Description Simple
@@ -13,7 +13,7 @@ use MikrotikAPI\Util\SentenceUtil,
  * @category    Libraries
  */
 
-class Type {
+class QueueSimple {
 
     /**
      *
@@ -29,34 +29,33 @@ class Type {
      * This method is used to display all Simple Queue rules
      * @return type array
      */
-    public function print() {
+    public function getAll() {
         $sentence = new SentenceUtil();
-        $sentence->fromCommand("/queue/type/print");
+        $sentence->fromCommand("/queue/simple/getall");
         $this->talker->send($sentence);
         $rs = $this->talker->getResult();
         $i = 0;
         if ($i < $rs->size()) {
             return $rs->getResultArray();
         } else {
-            return "No Queue type to Set, Please your Add Queue type";
+            return "No Simple Queue To Set, Please Your Add Simple Queue";
         }
     }
 
     /**
      * This method is used to set simple queue rules
-     * @param type $target string
-     * @param type $name string
-     * @param type $maxLimit string
+     * @param type $param array ('target','name','max-limit')
+     * @param type $param array ('target','name','queue'=> pcq_down.'/'.pcq_up )
      * @return type array
+     * This method is used to add address list
      */
     
-    public function addPCQ($name, $kind, $pcq_rate,$pcq_classifier) {
+    public function add($param) {
         $sentence = new SentenceUtil();
-        $sentence->addCommand("/queue/type/add");
-        $sentence->setAttribute("name", $name);
-        $sentence->setAttribute("kind", $kind);
-        $sentence->setAttribute("pcq-rate", $pcq_rate);
-        $sentence->setAttribute("pcq-classifier", $pcq_classifier);
+        $sentence->addCommand("/queue/simple/add");
+        foreach ($param as $name => $value) {
+            $sentence->setAttribute($name, $value);
+        }
         $this->talker->send($sentence);
         return "Success";
     }

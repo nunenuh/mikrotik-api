@@ -3,7 +3,8 @@
 namespace MikrotikAPI\Commands\Queue;
 
 use MikrotikAPI\Talker\Talker;
-use MikrotikAPI\Commands\PPP\Active;
+use MikrotikAPI\Commands\Queue\Simple,
+    MikrotikAPI\Commands\Queue\Type;
 
 /**
  * Description of Mapi_Queue
