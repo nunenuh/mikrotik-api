@@ -60,4 +60,18 @@ class QueueSimple {
         return "Success";
     }
 
+
+     /**
+     * This method is used to delete queue
+     * @param type $id string
+     * @return type array
+     */
+    public function delete($id) {
+        $sentence = new SentenceUtil();
+        $sentence->addCommand("/queue/simple/remove");
+        $sentence->where(".id", "=", $id);
+        $this->talker->send($sentence);
+        return "Success";
+    }
+
 }
