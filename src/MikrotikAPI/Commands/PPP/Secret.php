@@ -114,7 +114,7 @@ class Secret {
         if ($i < $rs->size()) {
             return $rs->getResultArray();
         } else {
-            return "No PPP Secret To Set, Please Your Add PPP Secret";
+            return "None";
         }
     }
 
