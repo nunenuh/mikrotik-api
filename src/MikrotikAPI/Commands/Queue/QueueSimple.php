@@ -38,7 +38,7 @@ class QueueSimple {
         if ($i < $rs->size()) {
             return $rs->getResultArray();
         } else {
-            return "No Simple Queue To Set, Please Your Add Simple Queue";
+            return "None";
         }
     }
 
