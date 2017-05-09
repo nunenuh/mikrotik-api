@@ -19,17 +19,13 @@ class QueueTypeTest extends TestCase
 	    $talker->initialize();
 		
 		$queueType = new QueueType($talker);
-		$param = array(
-				'name'           => '1M 31 Marzo',
-				'kind'           => 'pcq',
-				'pcq-rate'       => '1048576',
-				'pcq-classifier' => 'src-address',
-			);
-		
-		$result = $queueType->add($param);
+		$results = $queueType->print();
 
 		echo(PHP_EOL);
-		echo($result);
+		foreach($results as $result){
+			echo($result['.id'].PHP_EOL);
+		}
+		echo(PHP_EOL);
 	}
 	
 }

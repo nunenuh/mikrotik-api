@@ -58,4 +58,18 @@ class QueueType {
         return "Success";
     }
 
+    /**
+     * This method is used to remove ppp profile by id
+     * @param type $id string
+     * @return type array
+     * 
+     */
+    public function delete($id) {
+        $sentence = new SentenceUtil();
+        $sentence->addCommand("/queue/type/remove");
+        $sentence->where(".id", "=", $id);
+        $enable = $this->talker->send($sentence);
+        return "Success";
+    }
+
 }

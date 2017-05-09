@@ -26,7 +26,7 @@ class Talker {
     private $connector;
     private $useROS;
     private $routerAPI;
-    private $connected = FALSE;
+    private $connected   = FALSE;
     private $initialized = FALSE;
 
     public function __construct(Auth $auth, $useROS = true) {
