@@ -18,26 +18,17 @@ class QueueSimpleTest extends TestCase
 		$talker = Talker::create( $_ENV['MKT_IP'], $_ENV['MKT_USER'], $_ENV['MKT_PASS']);		
 	    $talker->initialize();
 		
-		$queue = new QueueSimple($talker);
-		$param = array(
-				'target'    => '192.168.0.1',
-				'name'      => 'Prueba 1- 31 Marzo',
-				'max-limit' => '1M',
-				);
-		$result = $queue->add($param);
-
-		echo(PHP_EOL);
+		$queue   = new QueueSimple($talker);
+		$result  = $queue->set([ 'comment' => ' editado'],'*2A');
 		echo($result);
 
-		$param = array(
-				'target' => '192.168.0.1',
-				'name'   => 'Prueba 2 - 31 Marzo',
-				'queue'  => '1MB Down/1MB Up',
-				);
-		$result = $queue->add($param);
-
+		$results = $queue->getAll();
 		echo(PHP_EOL);
-		echo($result);
+		foreach($results as $result){
+			echo($result['.id'].' '.$result['name'].PHP_EOL);
+		}
+		echo(PHP_EOL);
+
 	}
 	
 }
