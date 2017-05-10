@@ -19,11 +19,13 @@ class QueueTypeTest extends TestCase
 	    $talker->initialize();
 		
 		$queueType = new QueueType($talker);
+
+		$result  = $queueType->set(['name' => '2mb', 'pcq-rate' => '2048'],'*4D');
 		$results = $queueType->print();
 
 		echo(PHP_EOL);
 		foreach($results as $result){
-			echo($result['.id'].PHP_EOL);
+			echo($result['.id'].' '.$result['name'].PHP_EOL);
 		}
 		echo(PHP_EOL);
 	}

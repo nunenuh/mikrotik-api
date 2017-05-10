@@ -59,6 +59,24 @@ class QueueType {
     }
 
     /**
+     * This method is used to set or edit queue type by id
+     * @param type $param array
+     * @param type $id string
+     * @return type array
+     * 
+     */
+    public function set($param, $id) {
+        $sentence = new SentenceUtil();
+        $sentence->addCommand("/queue/type/set");
+        foreach ($param as $name => $value) {
+            $sentence->setAttribute($name, $value);
+        }
+        $sentence->where(".id", "=", $id);
+        $this->talker->send($sentence);
+        return "Success";
+    }
+
+    /**
      * This method is used to remove ppp profile by id
      * @param type $id string
      * @return type array
