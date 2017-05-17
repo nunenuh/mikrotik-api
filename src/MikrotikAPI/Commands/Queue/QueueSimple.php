@@ -8,7 +8,8 @@ use MikrotikAPI\Talker\Talker,
 /**
  * Description Simple
  *
- * @author      Osmell Caicedo correo.oele@gmail.com
+ * @author      Osmell Leandro Caicedo Gelvez correo.oele@gmail.com <http://oele.co>
+ * @copyright   Copyright (c) 2017, @oele_co.
  * @license     http://opensource.org/licenses/gpl-license.php GNU Public License
  * @category    Libraries
  */
@@ -90,6 +91,27 @@ class QueueSimple {
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
         return "Success";
+    }
+
+        /**
+     * This method is used to display one simple queue
+     * in detail based on the id
+     * @param type $id string
+     * @return type array
+     * 
+     */
+    public function detail($id) {
+        $sentence = new SentenceUtil();
+        $sentence->fromCommand("/queue/simple/print");
+        $sentence->where(".id", "=", $id);
+        $this->talker->send($sentence);
+        $rs = $this->talker->getResult();
+        $i = 0;
+        if ($i < $rs->size()) {
+            return $rs->getResultArray();
+        } else {
+            return "No PPP Profile With This id = " . $id;
+        }
     }
 
 }

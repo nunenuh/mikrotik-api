@@ -6,9 +6,10 @@ use MikrotikAPI\Talker\Talker,
     MikrotikAPI\Util\SentenceUtil;
 
 /**
- * Description Simple
+ * Description Type
  *
- * @author      Osmell Caicedo correo.oele@gmail.com
+ * @author      Osmell Leandro Caicedo Gelvez correo.oele@gmail.com <http://oele.co>
+ * @copyright   Copyright (c) 2017, @oele_co.
  * @license     http://opensource.org/licenses/gpl-license.php GNU Public License
  * @category    Libraries
  */
@@ -77,7 +78,7 @@ class QueueType {
     }
 
     /**
-     * This method is used to remove ppp profile by id
+     * This method is used to remove queue type by id
      * @param type $id string
      * @return type array
      * 

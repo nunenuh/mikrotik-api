@@ -7,9 +7,10 @@ use MikrotikAPI\Commands\Queue\Simple,
     MikrotikAPI\Commands\Queue\Type;
 
 /**
- * Description of Mapi_Queue
+ * Description of Queue
  *
- * @author      Osmell Caicedo correo.oele@gmail.com
+ * @author      Osmell Leandro Caicedo Gelvez correo.oele@gmail.com <http://oele.co>
+ * @copyright   Copyright (c) 2017, @oele_co.
  * @license     http://opensource.org/licenses/gpl-license.php GNU Public License
  * @category	Libraries
  */
