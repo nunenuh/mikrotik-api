@@ -20,23 +20,23 @@ class PingTest extends TestCase
 		
 		$ping   = new Ping($talker);
 
-		$results = $ping->get(['address' => '192.168.44.11', 'count' => 5]);
+		// $results = $ping->get(['address' => '192.168.44.11', 'count' => 5]);
 		
-		foreach($results as $result){
+		// foreach($results as $result){
 
-			echo(PHP_EOL);
-			foreach ($result as $key => $value) {
-				# code...
-				echo($key.':'.$value.' ');
+		// 	echo(PHP_EOL);
+		// 	foreach ($result as $key => $value) {
+		// 		# code...
+		// 		echo($key.':'.$value.' ');
 
-				// foreach ($value as $key => $value) {
-				// 	# code...
-				// 	echo($key.':'.$value.PHP_EOL);
-				// }
+		// 		// foreach ($value as $key => $value) {
+		// 		// 	# code...
+		// 		// 	echo($key.':'.$value.PHP_EOL);
+		// 		// }
 
-			}	
-		}
-		echo(PHP_EOL);
+		// 	}	
+		// }
+		// echo(PHP_EOL);
 
 	}
 	
