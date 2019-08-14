@@ -38,7 +38,7 @@ class VRRP {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -70,7 +70,7 @@ class VRRP {
         $sentence->addCommand("/interface/vrrp/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -84,7 +84,7 @@ class VRRP {
         $sentence->addCommand("/interface/vrrp/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -98,7 +98,7 @@ class VRRP {
         $sentence->addCommand("/interface/vrrp/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -116,7 +116,7 @@ class VRRP {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

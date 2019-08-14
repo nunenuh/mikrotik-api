@@ -51,7 +51,7 @@ class FirewallConnection {
         $sentence->addCommand("/ip/firewall/connection/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
 }

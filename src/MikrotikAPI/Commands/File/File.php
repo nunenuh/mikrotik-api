@@ -72,7 +72,34 @@ class File {
         $sentence->addCommand("/file/remove");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
+    }
+    
+    /**
+     * [[Description]]
+     * @param  [[Type]] $filename [[Description]]
+     * @param  [[Type]] $contents [[Description]]
+     * @return string   [[Description]]
+     */
+    public function create_file_compat($filename, $contents){
+        $sentence = new SentenceUtil();
+        $sentence->addCommand("/file/print");
+        $sentence->setAttribute("file", $filename);
+        $this->talker->send($sentence);
+        $sentence = new SentenceUtil();
+        $sentence->addCommand("/file/set");
+        $sentence->setAttribute("$filename.txt", "contents=\"$contents\"");
+        $enable = $this->talker->send($sentence);
+        return "Success";        
+    }
+    
+    public function create_file($filename, $content){
+        $sentence = new SentenceUtil();
+        $sentence->addCommand('[/lua "local f=assert(io.open(/'.$filename.', w+));');
+        $sentence->addCommand('f:write('.$content.');');
+        $sentence->addCommand('f:close();');
+        $this->talker->send($sentence);
+        return "Success";
     }
 
 }

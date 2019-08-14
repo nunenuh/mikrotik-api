@@ -34,7 +34,7 @@ class DNS{
         $sentence->addCommand("/ip/dns/set");
         $sentence->setAttribute("servers", $servers);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
     
     /**
@@ -69,7 +69,7 @@ class DNS{
                $sentence->setAttribute($name, $value);
        }       
        $this->talker->send($sentence);
-       return "Sucsess";
+       return "Success";
     }
    /**
     * This method is used to display
@@ -126,7 +126,7 @@ class DNS{
          }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
      /**

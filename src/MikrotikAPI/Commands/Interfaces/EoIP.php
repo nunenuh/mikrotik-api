@@ -54,7 +54,7 @@ class EoIP {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -92,7 +92,7 @@ class EoIP {
         $sentence->addCommand("/interface/eoip/enable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -109,7 +109,7 @@ class EoIP {
         $sentence->addCommand("/interface/eoip/disable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -126,7 +126,7 @@ class EoIP {
         $sentence->addCommand("/interface/eoip/remove");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -159,7 +159,7 @@ class EoIP {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

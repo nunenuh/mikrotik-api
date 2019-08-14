@@ -33,7 +33,7 @@ class L2TPClient {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -46,7 +46,7 @@ class L2TPClient {
         $sentence->addCommand("/interface/l2tp-client/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -59,7 +59,7 @@ class L2TPClient {
         $sentence->addCommand("/interface/l2tp-client/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -72,7 +72,7 @@ class L2TPClient {
         $sentence->addCommand("/interface/l2tp-client/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -108,7 +108,7 @@ class L2TPClient {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

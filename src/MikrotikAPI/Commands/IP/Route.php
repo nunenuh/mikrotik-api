@@ -55,7 +55,7 @@ class Route {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -68,7 +68,7 @@ class Route {
         $sentence->addCommand("/ip/route/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -82,7 +82,7 @@ class Route {
         $sentence->addCommand("/ip/route/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -96,7 +96,7 @@ class Route {
         $sentence->addCommand("/ip/route/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -114,7 +114,7 @@ class Route {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

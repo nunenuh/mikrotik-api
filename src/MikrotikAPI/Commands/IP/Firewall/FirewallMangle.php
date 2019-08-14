@@ -37,7 +37,7 @@ class FirewallMangle {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -50,7 +50,7 @@ class FirewallMangle {
         $sentence->addCommand("/ip/firewall/mangle/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -63,7 +63,7 @@ class FirewallMangle {
         $sentence->addCommand("/ip/firewall/mangle/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -76,7 +76,7 @@ class FirewallMangle {
         $sentence->addCommand("/ip/firewall/mangle/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -112,7 +112,7 @@ class FirewallMangle {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

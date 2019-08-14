@@ -37,7 +37,7 @@ class IPTunnel {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -67,7 +67,7 @@ class IPTunnel {
         $sentence->addCommand("/interface/ipip/enable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -80,7 +80,7 @@ class IPTunnel {
         $sentence->addCommand("/interface/ipip/disable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -93,7 +93,7 @@ class IPTunnel {
         $sentence->addCommand("/interface/ipip/remove");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -110,7 +110,7 @@ class IPTunnel {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

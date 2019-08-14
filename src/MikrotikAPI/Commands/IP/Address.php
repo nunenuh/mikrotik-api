@@ -39,7 +39,7 @@ class Address {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -72,7 +72,7 @@ class Address {
         $sentence->addCommand("/ip/address/enable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -87,7 +87,7 @@ class Address {
         $sentence->addCommand("/ip/address/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -101,7 +101,7 @@ class Address {
         $sentence->addCommand("/ip/address/remove");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -118,7 +118,7 @@ class Address {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -138,7 +138,29 @@ class Address {
         if ($i < $rs->size()) {
             return $rs->getResultArray();
         } else {
-            return "No Ip Address With This id = " . $id;
+            return "No Ip Address With This .id = " . $id;
+        }
+    }
+
+    /**
+     * This method is used to display one list address 
+     * in detail based on one param
+     * @param type string
+     * @return type array
+     * 
+     */
+    
+    public function detail_address_where($param,$value) {
+        $sentence = new SentenceUtil();
+        $sentence->fromCommand("/ip/address/print");
+        $sentence->where($param, "=", $value);
+        $this->talker->send($sentence);
+        $rs = $this->talker->getResult();
+        $i = 0;
+        if ($i < $rs->size()) {
+            return $rs->getResultArray();
+        } else {
+            return "No Ip Address With This ". $param . " = " . $value;
         }
     }
 

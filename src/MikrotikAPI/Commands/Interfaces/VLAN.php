@@ -38,7 +38,7 @@ class VLAN {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -70,7 +70,7 @@ class VLAN {
         $sentence->addCommand("/interface/vlan/enable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -84,7 +84,7 @@ class VLAN {
         $sentence->addCommand("/interface/vlan/disable");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -98,7 +98,7 @@ class VLAN {
         $sentence->addCommand("/interface/vlan/remove");
         $sentence->where(".id", "=", $id);
         $enable = $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -116,7 +116,7 @@ class VLAN {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

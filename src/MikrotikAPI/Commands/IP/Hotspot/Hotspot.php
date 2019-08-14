@@ -3,14 +3,14 @@
 namespace MikrotikAPI\Commands\IP\Hotspot;
 
 use MikrotikAPI\Talker\Talker;
-use MikrotikAPI\Commands\IP\Hotspot\Server,
-    MikrotikAPI\Commands\IP\Hotspot\ServerProfiles,
-    MikrotikAPI\Commands\IP\Hotspot\Users,
-    MikrotikAPI\Commands\IP\Hotspot\UserProfile,
-    MikrotikAPI\Commands\IP\Hotspot\Hosts,
-    MikrotikAPI\Commands\IP\Hotspot\Active,
-    MikrotikAPI\Commands\IP\Hotspot\IPBindings,
-    MikrotikAPI\Commands\IP\Hotspot\Cookie;
+use MikrotikAPI\Commands\IP\Hotspot\HotspotServer,
+    MikrotikAPI\Commands\IP\Hotspot\HotspotServerProfiles,
+    MikrotikAPI\Commands\IP\Hotspot\HotspotUsers,
+    MikrotikAPI\Commands\IP\Hotspot\HotspotUserProfile,
+    MikrotikAPI\Commands\IP\Hotspot\HotspotHosts,
+    MikrotikAPI\Commands\IP\Hotspot\HotspotActive,
+    MikrotikAPI\Commands\IP\Hotspot\HotspotIPBindings,
+    MikrotikAPI\Commands\IP\Hotspot\HotspotCookie;
 
 /**
  * Description of Hotspot
@@ -36,7 +36,7 @@ class Hotspot {
      * @return \MikrotikAPI\Commands\IP\Hotspot\Server
      */
     public function server() {
-        return new Server($this->talker);
+        return new HotspotServer($this->talker);
     }
 
     /**
@@ -44,7 +44,7 @@ class Hotspot {
      * @return \MikrotikAPI\Commands\IP\Hotspot\ServerProfiles
      */
     public function serverProfiles() {
-        return new ServerProfiles($this->talker);
+        return new HotspotServerProfiles($this->talker);
     }
 
     /**
@@ -52,7 +52,7 @@ class Hotspot {
      * @return \MikrotikAPI\Commands\IP\Hotspot\Users
      */
     public function users() {
-        return new Users($this->talker);
+        return new HotspotUsers($this->talker);
     }
 
     /**
@@ -60,7 +60,7 @@ class Hotspot {
      * @return \MikrotikAPI\Commands\IP\Hotspot\UserProfile
      */
     public function userProfiles() {
-        return new UserProfile($this->talker);
+        return new HotspotUserProfile($this->talker);
     }
 
     /**
@@ -68,7 +68,7 @@ class Hotspot {
      * @return \MikrotikAPI\Commands\IP\Hotspot\Active
      */
     public function active() {
-        return new Active($this->talker);
+        return new HotspotActive($this->talker);
     }
 
     /**
@@ -76,7 +76,7 @@ class Hotspot {
      * @return \MikrotikAPI\Commands\IP\Hotspot\Hosts
      */
     public function hosts() {
-        return new Hosts($this->talker);
+        return new HotspotHosts($this->talker);
     }
 
     /**
@@ -84,7 +84,7 @@ class Hotspot {
      * @return \MikrotikAPI\Commands\IP\Hotspot\IPBindings
      */
     public function IPBinding() {
-        return new IPBindings($this->talker);
+        return new HotspotIPBindings($this->talker);
     }
 
     /**
@@ -92,7 +92,7 @@ class Hotspot {
      * @return \MikrotikAPI\Commands\IP\Hotspot\Cookie
      */
     public function cookie() {
-        return new Cookie($this->talker);
+        return new HotspotCookie($this->talker);
     }
 
 }

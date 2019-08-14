@@ -1,16 +1,16 @@
 {
-    "name": "nunenuh/mikrotik-api",
+    "name": "oele-code/mikrotik-api",
     "description": "Mikrotik API PHP Library for working with RouterOS API",
-    "version": "0.8.0",
+    "version": "0.10.2",
     "type": "library",
-    "time": "2013-12-03",
+    "time": "2016-08-31",
     "keywords": ["API", "Mikrotik","RouterOS"],
+    "homepage": "https://github.com/oele-code/mikrotik-api",
     "license": "MIT",
     "authors": [
         {
-            "name": "Lalu Erfandi Maula Yusnu",
-            "email": "nunenuh@gmail.com",
-            "homepage": "http://nunenuh.web.id"
+            "name": "Osmell Caicedo",
+            "email": "correo.oele@gmail.com"
         }
     ],
     "autoload": {
@@ -21,5 +21,9 @@
     },
     "require": {
         "php": ">=5.3.3"
+    },
+    "require-dev":{
+        "phpunit/phpunit": "5.5.*",
+        "vlucas/phpdotenv": "^2.3"
     }
 }

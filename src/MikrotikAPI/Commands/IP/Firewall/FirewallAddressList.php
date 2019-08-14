@@ -37,7 +37,7 @@ class FirewallAddressList {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -69,7 +69,7 @@ class FirewallAddressList {
         $sentence->addCommand("/ip/firewall/address-list/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -83,7 +83,7 @@ class FirewallAddressList {
         $sentence->addCommand("/ip/firewall/address-list/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -97,7 +97,7 @@ class FirewallAddressList {
         $sentence->addCommand("/ip/firewall/address-list/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -115,7 +115,7 @@ class FirewallAddressList {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**

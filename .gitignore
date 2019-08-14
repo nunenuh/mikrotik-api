@@ -1,1 +1,4 @@
-/nbproject/private/
+/vendor
+/test/.env
+.DS_Store
+.env

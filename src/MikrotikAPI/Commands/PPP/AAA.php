@@ -56,7 +56,7 @@ class AAA {
         $sentence->setAttribute("accounting", $accounting);
         $sentence->setAttribute("interim-update", $interim_update);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
 }

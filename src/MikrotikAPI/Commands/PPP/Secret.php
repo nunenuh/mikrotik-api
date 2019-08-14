@@ -38,7 +38,7 @@ class Secret {
             $sentence->setAttribute($name, $value);
         }
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -52,7 +52,7 @@ class Secret {
         $sentence->addCommand("/ppp/secret/disable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -66,7 +66,7 @@ class Secret {
         $sentence->addCommand("/ppp/secret/enable");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -84,7 +84,7 @@ class Secret {
         }
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -97,7 +97,7 @@ class Secret {
         $sentence->addCommand("/ppp/secret/remove");
         $sentence->where(".id", "=", $id);
         $this->talker->send($sentence);
-        return "Sucsess";
+        return "Success";
     }
 
     /**
@@ -114,7 +114,7 @@ class Secret {
         if ($i < $rs->size()) {
             return $rs->getResultArray();
         } else {
-            return "No PPP Secret To Set, Please Your Add PPP Secret";
+            return "None";
         }
     }
 
