@@ -101,9 +101,17 @@ class RouterosAPI
             $this->socket = @fsockopen($PROTOCOL . $ip, $this->port, $this->error_no, $this->error_str, $this->timeout);
             if ($this->socket) {
                 socket_set_timeout($this->socket, $this->timeout);
-                $this->write('/login');
+                $this->write('/login', false);
+                $this->write('=name=' . $login, false);
+                $this->write('=password=' . $password);
                 $RESPONSE = $this->read(false);
                 if (isset($RESPONSE[0]) && $RESPONSE[0] == '!done') {
+                    // Login method post-v6.43
+                    if (!isset($RESPONSE[1])) {
+                        $this->connected = true;
+                        break;
+                    }
+
                     $MATCHES = array();
                     if (preg_match_all('/[^=]+/i', $RESPONSE[1], $MATCHES)) {
                         if ($MATCHES[0][0] == 'ret' && strlen($MATCHES[0][1]) == 32) {
